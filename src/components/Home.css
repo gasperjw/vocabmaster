@@ -1,0 +1,108 @@
+.home-page {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f7f7f7, #e6e9f0);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .home-container {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #2d3748;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    color: #4a5568;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .nav-button {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #2d3748;
+    transition: all 0.3s ease;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  
+  .text {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  /* Button-specific colors */
+  .reading:hover {
+    background: #ebf8ff;
+    border-color: #bee3f8;
+  }
+  
+  .flashcards:hover {
+    background: #f0f5ff;
+    border-color: #bddeff;
+  }
+  
+  .quiz:hover {
+    background: #f0fff4;
+    border-color: #c6f6d5;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 480px) {
+    .home-container {
+      padding: 30px 20px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .subtitle {
+      font-size: 1rem;
+    }
+  
+    .nav-button {
+      padding: 15px;
+    }
+  
+    .icon {
+      font-size: 20px;
+    }
+  
+    .text {
+      font-size: 1rem;
+    }
+  }

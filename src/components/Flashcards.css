@@ -1,0 +1,188 @@
+/* Container for the entire page */
+.fc-container {
+max-width: 800px;
+margin: 0 auto;
+padding: 2rem;
+min-height: 100vh;
+position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f5f5f7;
+  min-height: 100vh;
+  position: relative; /* so the back button can be positioned */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Back button in the top-left corner */
+.fc-back-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.9rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #2563eb;
+}
+.fc-back-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Header text */
+.fc-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.fc-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.fc-header p {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Progress bar container */
+.fc-progress-container {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+.fc-progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e1e1e6;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+.fc-progress {
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.3s ease;
+}
+.fc-progress-text {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* The main flashcard */
+.fc-card {
+  width: 100%;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  height: 600px; /* fixed height for consistent look */
+  display: flex;
+  align-items: flex-end; /* ensures overlay sits at bottom */
+  background-color: #aaa; /* fallback background color */
+}
+.fc-card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.9);
+  z-index: 1;
+}
+.fc-card-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.85);
+  width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+/* Part of speech badge */
+.fc-pos-badge {
+  display: inline-block;
+  background: #eee;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+/* Word & definition text */
+.fc-word {
+  margin: 0.25rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+.fc-phonetics {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  color: #888;
+}
+.fc-definition {
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.fc-example {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Practice button inside the card */
+.fc-practice-btn {
+  display: inline-block;
+  background: #3b49df;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+}
+.fc-practice-btn:hover {
+  background: #2c37a3;
+  transform: translateY(-2px);
+}
+
+/* Action buttons at the bottom (share, listen, replay) */
+.fc-actions {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 360px;
+}
+.fc-actions button {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s;
+}
+.fc-actions button:hover {
+  background: #f0f0f0;
+}
