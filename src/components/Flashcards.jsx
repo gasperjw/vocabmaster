@@ -34,6 +34,9 @@ const Flashcards = () => {
   // For swipe detection
   const touchStartX = useRef(null);
 
+  // Add touch feedback
+  const [isTouching, setIsTouching] = useState(false);
+
   const currentCard = flashcardsData[currentCardIndex];
 
   const handleNextCard = () => {
@@ -72,10 +75,12 @@ const Flashcards = () => {
 
   // Touch events to detect swipes on mobile
   const handleTouchStart = (e) => {
+    setIsTouching(true);
     touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = (e) => {
+    setIsTouching(false);
     if (touchStartX.current === null) return;
 
     const touchEndX = e.changedTouches[0].clientX;
@@ -100,12 +105,12 @@ const Flashcards = () => {
 
   return (
     <>
-      {/* Back (ack) button is now OUTSIDE the main container */}
-      <button className="fc-back-btn" onClick={() => navigate('/')}>← Back</button>
 
       <div className="fc-container">
+        <button className="fc-back-btn" onClick={() => navigate('/')}>← Back</button>
+
         <div className="fc-header">
-          <h1>Learn Today’s Words</h1>
+          <h1>Learn Today's Words!</h1>
           <p>Expand your vocabulary with a new word every day</p>
         </div>
 
@@ -124,14 +129,15 @@ const Flashcards = () => {
           tapping/clicking toggles the word details.
         */}
         <div
-          className="fc-card"
+          className={`fc-card ${isTouching ? 'touching' : ''}`}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
+          onTouchCancel={() => setIsTouching(false)}
+          onClick={() => setShowDetails((prev) => !prev)}
         >
           <div
             className="fc-card-background"
             style={{ backgroundImage: `url(${currentCard.image})` }}
-            onClick={() => setShowDetails((prev) => !prev)}
           />
           <div className="fc-card-overlay">
             <span className="fc-pos-badge">{currentCard.pos}</span>

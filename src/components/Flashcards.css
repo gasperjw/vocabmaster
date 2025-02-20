@@ -1,24 +1,23 @@
 /* Container for the entire page */
 .fc-container {
-max-width: 800px;
-margin: 0 auto;
-padding: 2rem;
-min-height: 100vh;
-position: relative;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  width: 100%;
+  height: 100dvh;
+  position: relative;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #f5f5f7;
-  min-height: 100vh;
-  position: relative; /* so the back button can be positioned */
+  background: #f0f2f5; /* Change to white background */
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Back button in the top-left corner */
 .fc-back-btn {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  position: fixed;
+  top: max(1rem, env(safe-area-inset-top));
+  left: max(1rem, env(safe-area-inset-left));
   font-size: 0.9rem;
   background: #fff;
   border: 1px solid #ddd;
@@ -26,6 +25,7 @@ position: relative;
   padding: 0.5rem 1rem;
   cursor: pointer;
   color: #2563eb;
+  z-index: 1000;
 }
 .fc-back-btn:hover {
   background: #f0f0f0;
@@ -33,8 +33,9 @@ position: relative;
 
 /* Header text */
 .fc-header {
+  width: 100%;
   text-align: center;
-  margin-bottom: 1.5rem;
+  padding: 4rem 1rem 1rem;
 }
 .fc-header h1 {
   margin: 0;
@@ -49,8 +50,8 @@ position: relative;
 
 /* Progress bar container */
 .fc-progress-container {
-  width: 100%;
-  margin-bottom: 1.5rem;
+  width: calc(100% - 2rem);
+  margin: 0 auto 1rem;
 }
 .fc-progress-bar {
   width: 100%;
@@ -74,16 +75,17 @@ position: relative;
 
 /* The main flashcard */
 .fc-card {
-  width: 100%;
+  width: calc(100% - 2rem);
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
-  height: 600px; /* fixed height for consistent look */
+  margin: auto 1rem;
+  flex: 1;
   display: flex;
-  align-items: flex-end; /* ensures overlay sits at bottom */
-  background-color: #aaa; /* fallback background color */
+  align-items: flex-end;
+  background-color: #aaa;
+  touch-action: pan-x;
 }
 .fc-card-background {
   position: absolute;
@@ -185,4 +187,51 @@ position: relative;
 }
 .fc-actions button:hover {
   background: #f0f0f0;
+}
+
+/* Improved touch feedback */
+.fc-card.touching {
+  transform: scale(0.98);
+  transition: transform 0.2s ease;
+}
+
+/* Mobile-optimized text */
+@media (max-width: 768px) {
+  .fc-container {
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  }
+  
+  .fc-card {
+    width: 90%; /* Make card slightly narrower on mobile */
+    margin: 0 auto; /* Center the card */
+  }
+  
+  .fc-progress-container {
+    width: 90%;
+  }
+  
+  .fc-word {
+    font-size: 1.4rem;
+  }
+  
+  .fc-definition {
+    font-size: 0.95rem;
+  }
+  
+  .fc-example {
+    font-size: 0.85rem;
+  }
+  
+  .fc-actions button {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Better safe area support */
+@supports (padding: max(0px)) {
+  .fc-container {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
 }

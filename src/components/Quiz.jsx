@@ -90,16 +90,17 @@ export default function Quiz() {
 
   return (
     <div className="quiz-container">
-      <button className="back-button" onClick={goBack}>
+      <button className="back-button" onClick={goBack} aria-label="Go back">
         &larr; Back
       </button>
 
       <div className="quiz-box">
-        {/* Title & instructions */}
+        {/* Reduce title size for mobile */}
         <h2 className="quiz-title">Vocabulary Quiz</h2>
+        
+        {/* Make instructions more concise */}
         <p className="quiz-instructions">
-          Select the best definition for each word.  
-          You'll see an explanation after you pick an answer.
+          Choose the correct definition
         </p>
 
         {/* Progress section */}

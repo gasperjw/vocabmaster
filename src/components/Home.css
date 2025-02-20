@@ -1,14 +1,16 @@
 .home-page {
     min-height: 100vh;
-    background: linear-gradient(to bottom, #f7f7f7, #e6e9f0);
-    padding: 20px;
+    background: f0f2f5;
+    padding: 16px;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
   .home-container {
-    background: white;
+    background: f0f2f5;
     padding: 40px 30px;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -40,18 +42,25 @@
   .nav-button {
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 16px;
+    min-height: 60px;
     border-radius: 12px;
     text-decoration: none;
     color: #2d3748;
     transition: all 0.3s ease;
     background: #f7fafc;
     border: 1px solid #e2e8f0;
+    touch-action: manipulation;
   }
   
   .nav-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-button:active {
+    transform: scale(0.98);
+    transition: transform 0.2s ease;
   }
   
   .icon {
@@ -83,19 +92,19 @@
   /* Mobile responsiveness */
   @media (max-width: 480px) {
     .home-container {
-      padding: 30px 20px;
+      padding: 24px 16px;
     }
   
     h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
   
     .subtitle {
       font-size: 1rem;
     }
   
-    .nav-button {
-      padding: 15px;
+    .button-container {
+      gap: 12px;
     }
   
     .icon {

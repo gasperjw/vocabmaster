@@ -138,7 +138,13 @@ function Reading() {
         )}
       </div>
 
-      <div className="controls">
+      <div className="navigation-buttons">
+        <button onClick={handlePrevious}>← Previous</button>
+        <span>{currentIndex + 1} / {passages.length}</span>
+        <button onClick={handleNext}>Next →</button>
+      </div>
+
+      <div className="toggle-controls">
         <button 
           onClick={() => setShowContext(!showContext)}
           className={`toggle-button ${showContext ? 'active' : ''}`}
@@ -152,12 +158,6 @@ function Reading() {
         >
           {showAnalysis ? 'Hide Analysis' : 'Show Analysis'}
         </button>
-      </div>
-
-      <div className="navigation-buttons">
-        <button onClick={handlePrevious}>← Previous</button>
-        <span>{currentIndex + 1} / {passages.length}</span>
-        <button onClick={handleNext}>Next →</button>
       </div>
     </div>
   );
