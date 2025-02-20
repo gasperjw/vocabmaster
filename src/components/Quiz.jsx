@@ -55,6 +55,11 @@ export default function Quiz() {
     setProgress(((currentQuestion + 1) / questions.length) * 100);
   }, [currentQuestion]);
 
+  // Add this useEffect to scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const handleAnswer = (correct) => {
     if (correct) {
       setScore((prev) => prev + 1);
@@ -118,7 +123,7 @@ export default function Quiz() {
           </div>
         </div>
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" key="quiz-animation">
           {showScore ? (
             // Final Score Screen
             <motion.div
@@ -149,9 +154,7 @@ export default function Quiz() {
             >
               {/* Header row */}
               <div className="quiz-header">
-                <span className="question-number">
-                  Question {currentQuestion + 1} of {questions.length}
-                </span>
+   
                 <span className="score-tracker">Score: {score}</span>
               </div>
 
